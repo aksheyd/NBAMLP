@@ -1,9 +1,36 @@
-# Artificial Neural Network for NBA Finals Predictions
-Current Progress: \
-Trained ANN on dataset of Warriors in Golden State era (52 years) based on the following stats: \
-['WINS', 'LOSSES', 'WIN_PCT', 'CONF_RANK', 'FGM', 'FGA', 'FG_PCT', 'FG3M', 'FG3A', 'FG3_PCT', 'FTM', 'FTA', 'FT_PCT', 'OREB', 'DREB', 'REB', 'AST', 'PF', 'STL', 'TOV', 'BLK', 'PTS', 'PTS_RANK', 'NBA_FINALS_APPEARANCE'] 
+# NBA Championship Prediction
 
-Looking at the effect of the first 23 variables on NBA Finals Appearence. Used 80% of the data to train and 20% to test. \
-Predicted 2014-2015 Warriors (won championship) to arrive at Finals but not win \
-\
-based on NBA API
+A fun project using a custom Multi-Layer Perceptron (MLP) with manual backpropagation to predict NBA championship winners based on team statistics.
+
+## Model Statistics
+
+**Architecture:** 25 input features → 64 hidden neurons → 32 hidden neurons → 2 output classes
+
+**Training Results:**
+- Training Accuracy: 97.49%
+- Validation Accuracy: 96.25%
+- Test Accuracy: 96.25%
+- F1 Score: 0.00 (due to class imbalance)
+
+**Key Details:**
+- Custom backpropagation implementation (no autograd)
+- Trained on 797 team-seasons from 1996-2024
+- Uses 25 engineered features (shooting efficiency, scoring, rebounds, defense)
+- Dataset: 28 champions (3.5%), 769 non-champions (96.5%)
+
+The model achieves high accuracy by predicting "non-champion" for most teams (rational given class imbalance). However, it does learn patterns - championship contenders receive higher probabilities (28-33%) compared to the baseline. The model demonstrates an understanding of gradient descent and neural network fundamentals through its manual backpropagation implementation.
+
+## Quick Start
+
+```bash
+uv sync
+uv run python train.py    # Train the model
+uv run python predict.py  # Predict current season
+```
+
+## Files
+
+- `data.py` - Data collection and feature engineering
+- `model.py` - MLP with custom backpropagation
+- `train.py` - Training pipeline and evaluation
+- `predict.py` - Current season predictions
