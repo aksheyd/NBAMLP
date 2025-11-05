@@ -2,6 +2,17 @@
 
 A fun project using a custom Multi-Layer Perceptron (MLP) with manual backpropagation to predict NBA championship winners based on team statistics.
 
+## Learn
+
+You can clone this repo and tune the model to your liking. You can try:
+
+- different batch sizes
+- different learning rates
+- different activation functions (relu, sigmoid, tanh)
+- back propgation entirely
+
+Head to `model.py` to tune to your liking.
+
 ## Model Statistics
 
 ### Architecture
