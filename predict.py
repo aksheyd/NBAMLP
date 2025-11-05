@@ -6,7 +6,6 @@ from data import (
     load_scaler,
 )
 from model import NBAModel
-from pathlib import Path
 
 
 def predict_current_season(

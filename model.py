@@ -28,8 +28,6 @@ class NBAModel(nn.Module):
         self.output_layer = nn.Linear(h2, output_size)
 
     def forward(self, x):
-        batch_size = x.shape[0]
-
         self.x0 = x
 
         self.z1 = self.hidden_layer_1(x)

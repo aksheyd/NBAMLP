@@ -2,7 +2,7 @@ import torch
 import torch.optim as optim
 from pathlib import Path
 
-from data import build_dataset, load_processed_data, load_scaler
+from data import build_dataset
 from model import (
     NBAModel,
     BATCH_SIZE,
@@ -271,7 +271,6 @@ def main():
     X_test = data_splits["X_test"]
     y_test = data_splits["y_test"]
     meta_test = data_splits["meta_test"]
-    feature_names = data_splits["feature_names"]
 
     input_size = X_train.shape[1]
     print(f"Input features: {input_size}")
