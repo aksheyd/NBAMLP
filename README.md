@@ -4,21 +4,25 @@ A fun project using a custom Multi-Layer Perceptron (MLP) with manual backpropag
 
 ## Model Statistics
 
-**Architecture:** 25 input features → 64 hidden neurons → 32 hidden neurons → 2 output classes
+### Architecture
 
-**Training Results:**
+25 input features → 64 hidden neurons → 32 hidden neurons → 2 output classes
+
+Takes in one team's 25 stats and outputs a logit for champion vs non-champion.
+
+### Training Results
+
 - Training Accuracy: 97.49%
 - Validation Accuracy: 96.25%
 - Test Accuracy: 96.25%
-- F1 Score: 0.00 (due to class imbalance)
 
-**Key Details:**
-- Custom backpropagation implementation (no autograd)
+### Details
+
 - Trained on 797 team-seasons from 1996-2024
-- Uses 25 engineered features (shooting efficiency, scoring, rebounds, defense)
+- Uses 25 features (shooting efficiency, scoring, rebounds, defense)
 - Dataset: 28 champions (3.5%), 769 non-champions (96.5%)
 
-The model achieves high accuracy by predicting "non-champion" for most teams (rational given class imbalance). However, it does learn patterns - championship contenders receive higher probabilities (28-33%) compared to the baseline. The model demonstrates an understanding of gradient descent and neural network fundamentals through its manual backpropagation implementation.
+The model achieves high accuracy by predicting "non-champion" for most teams (rational given class imbalance). However, it does learn patterns - championship contenders receive higher probabilities (28-33%) compared to the baseline.
 
 ## Quick Start
 
@@ -31,6 +35,6 @@ uv run python predict.py  # Predict current season
 ## Files
 
 - `data.py` - Data collection and feature engineering
-- `model.py` - MLP with custom backpropagation
+- `model.py` - MLP
 - `train.py` - Training pipeline and evaluation
 - `predict.py` - Current season predictions
